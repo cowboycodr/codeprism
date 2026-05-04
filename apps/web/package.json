@@ -1,0 +1,15 @@
+{
+  "name": "@codeprism/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev --host 0.0.0.0 --port ${CODEPRISM_WEB_PORT:-5181}",
+    "build": "vite build",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "preview": "node build"
+  },
+  "dependencies": {
+    "@codeprism/shared": "0.1.0"
+  }
+}

@@ -1,0 +1,31 @@
+services:
+  api:
+    build: .
+    command: npm run dev:api
+    environment:
+      CODEPRISM_DATA_DIR: /var/lib/codeprism
+      CODEPRISM_DATABASE_URL: /var/lib/codeprism/codeprism.sqlite
+      CODEPRISM_HTTP_PORT: 5182
+      CODEPRISM_SSH_HOST: 0.0.0.0
+      CODEPRISM_SSH_PORT: 2222
+      CODEPRISM_RUNNER_ENABLED: "true"
+    ports:
+      - "5182:5182"
+      - "2222:2222"
+    volumes:
+      - codeprism-data:/var/lib/codeprism
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  web:
+    build: .
+    command: npm run dev:web
+    environment:
+      CODEPRISM_WEB_PORT: 5181
+      VITE_CODEPRISM_API_URL: http://localhost:5182
+    ports:
+      - "5181:5181"
+    depends_on:
+      - api
+
+volumes:
+  codeprism-data:

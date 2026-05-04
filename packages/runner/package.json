@@ -1,0 +1,19 @@
+{
+  "name": "@codeprism/runner",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./command": "./src/command.ts",
+    "./runner": "./src/runner.ts"
+  },
+  "dependencies": {
+    "@codeprism/db": "0.1.0",
+    "@codeprism/git": "0.1.0",
+    "@codeprism/process": "0.1.0",
+    "@codeprism/shared": "0.1.0"
+  },
+  "scripts": {
+    "check": "tsc -p tsconfig.json --noEmit"
+  }
+}

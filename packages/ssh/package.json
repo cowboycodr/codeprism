@@ -1,0 +1,19 @@
+{
+  "name": "@codeprism/ssh",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./auth": "./src/auth.ts",
+    "./keys": "./src/keys.ts",
+    "./server": "./src/server.ts"
+  },
+  "dependencies": {
+    "@codeprism/db": "0.1.0",
+    "@codeprism/git": "0.1.0",
+    "@codeprism/shared": "0.1.0"
+  },
+  "scripts": {
+    "check": "tsc -p tsconfig.json --noEmit"
+  }
+}
